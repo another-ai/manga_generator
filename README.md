@@ -49,11 +49,11 @@ exec bash"
 ```
 
 # manga_generator.txt
-File with prompts, one line = one prompt(1 scene)
-one empty line = new page
-(max 6 scenes for page)
+File with prompts, one line = one prompt(1 scene)  
+one empty line = new page  
+(max 6 scenes for page)  
 
-# env/mange_generator.env
+# env/manga_generator.env
 File for configuration
 
 # Run on Windows:
