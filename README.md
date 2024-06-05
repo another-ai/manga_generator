@@ -15,16 +15,16 @@ pip install -r requirements.txt
 # Installation on Linux:
 
 1. Clone the repository:
-git clone ```https://github.com/another-ai/stable_cascade_easy.git```
+git clone ```https://github.com/another-ai/manga_generator.git```
 
-2. open terminal in the cloned directory: stable_cascade_easy
+2. open terminal in the cloned directory: manga_generator
 type the following prompt:
-```python3 -m venv env```
+```python3 -m venv venv```
 
 3. to activate the virtual environment type:
-```source env/bin/activate```
+```source venv/bin/activate```
 
-4. your terminal will change to (env) for the new commands. Type the following
+4. your terminal will change to (venv) for the new commands. Type the following
 ```pip install -r requirements.txt```
 
 5. the git pull will now work without errors. when install is finished type the following
@@ -38,12 +38,12 @@ here's the text you need to write in the ```start.sh``` file, you need to change
 ```#!/bin/bash```
 
 Specify the paths to your virtual environment and start.py script
-```venv_path="/home/user/stable_cascade_easy"```
+```venv_path="/home/user/manga_generator"```
 
 Open a new Gnome terminal window
 ```bash
 gnome-terminal --working-directory=$venv_path -- bash -ic
-"source env/bin/activate;
+"source venv/bin/activate;
 python3 app.py;
 exec bash"
 ```
