@@ -32,7 +32,7 @@ type the following prompt:
 
 it will take a while to download the models and launch the Web UI in your default browser.
 
-to launch again you can write a new file in your text editor and save in in the stable_cascade_easy directory. save the file as start.sh
+to launch again you can write a new file in your text editor and save in in the manga_generator directory. save the file as start.sh
 here's the text you need to write in the ```start.sh``` file, you need to change "user" to your own user name:
 
 ```#!/bin/bash```
@@ -50,7 +50,7 @@ exec bash"
 
 # Run on Windows:
 ### Method 1
-Double click on ```app.bat``` on stable_cascade_easy directory
+Double click on ```app.bat``` on manga_generator directory
 ### Method 2
 On terminal:
 ```bash
