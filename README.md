@@ -48,6 +48,14 @@ python3 app.py;
 exec bash"
 ```
 
+# manga_generator.txt
+File with prompts, one line = one prompt(1 scene)
+one empty line = new page
+(max 6 scenes for page)
+
+# env/mange_generator.env
+File for configuration
+
 # Run on Windows:
 ### Method 1
 Double click on ```app.bat``` on manga_generator directory
