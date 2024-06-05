@@ -57,10 +57,10 @@ one empty line = new page
 File for configuration
 
 # Models
-- Download from hugginface, civitai.com or any similar website every checkpoint sd xl that you use and put them into ./models/Stable-diffusion/
-- Download from hugginface, civitai.com or any similar website every LoRA sd xl that you use and put them into ./models/Lora/
-- (optional) Download from hugginface, civitai.com or any similar website every VAE that you use and put them into ./models/VAE/
-Configure the manga_generator.env with your models.
+1. Download from hugginface, civitai.com or any similar website every checkpoint sd xl that you use and put them into ./models/Stable-diffusion/
+2. Download from hugginface, civitai.com or any similar website every LoRA sd xl that you use and put them into ./models/Lora/
+3. (optional) Download from hugginface, civitai.com or any similar website every VAE that you use and put them into ./models/VAE/
+4. Configure the manga_generator.env with your models.
 
 # Run on Windows:
 ### Method 1
