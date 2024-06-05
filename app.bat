@@ -1,3 +1,3 @@
 call .\venv\Scripts\activate
-py manga_generator.py
+py app.py
 pause
