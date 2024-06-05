@@ -48,16 +48,6 @@ python3 app.py;
 exec bash"
 ```
 
-## Avoid warnings about deprecated packages "Peft"(Linux) - not necessary from v1.3 because peft is already in requirements.txt:
-
-1. in the installation directory open terminal:
-type in the following command:
-```source env/bin/activate```
-
-2. type in the next commend: ```pip install peft```
-
-3. after installation: exit the terminal and restart stable cascade.
-
 # Run on Windows:
 ### Method 1
 Double click on ```app.bat``` on stable_cascade_easy directory
@@ -71,3 +61,6 @@ py app.py
 1. ```git pull```(if error: ```git stash``` and after ```git pull```)
 2. ```.\venv\Scripts\activate```
 3. ```pip install -r requirements.txt```
+
+# Versions:
+- v1.0: First version
