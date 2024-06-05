@@ -49,7 +49,7 @@ exec bash"
 ```
 
 ## Avoid warnings about deprecated packages "Peft"(Linux) - not necessary from v1.3 because peft is already in requirements.txt:
-#### (Thanks to @blahouel)
+
 1. in the installation directory open terminal:
 type in the following command:
 ```source env/bin/activate```
