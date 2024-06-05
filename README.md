@@ -6,8 +6,8 @@ Create your manga/comic with manga_generator and Stable Diffusion XL
 2. Install [git](https://git-scm.com/download/win).
 3. On terminal:
 ```bash
-git clone https://github.com/shiroppo/stable_cascade_easy
-cd stable_cascade_easy
+git clone https://github.com/shiroppo/manga_generator
+cd manga_generator
 py -m venv venv
 .\venv\Scripts\activate
 pip install -r requirements.txt
