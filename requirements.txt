@@ -1,0 +1,10 @@
+--find-links https://download.pytorch.org/whl/cu118
+torch==2.2.1+cu118
+torchvision==0.17.1+cu118
+--find-links https://download.pytorch.org/whl/torch_stable.html
+accelerate==0.27.2
+diffusers==0.27.2
+peft==0.8.2
+Pillow==10.2.0
+python-dotenv==1.0.1
+transformers==4.37.2
