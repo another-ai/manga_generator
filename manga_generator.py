@@ -6,10 +6,6 @@ import gc
 from dotenv import load_dotenv
 from diffusers import StableDiffusionXLPipeline, AutoencoderKL
 from diffusers import EulerAncestralDiscreteScheduler
-# import sys
-# path = os.path.abspath("src")
-# sys.path.append(path)
-# import hires_fix
 
 env_path = os.path.join('env', 'manga_generator.env')
 if os.path.exists(env_path):
@@ -38,7 +34,6 @@ MANGA_DIR = os.getenv('MANGA_DIR', 'manga')
 PROMPT_FILE = os.getenv('PROMPT_FILE', 'manga_generator.txt')
 DEFAULT_PROMPT = os.getenv('DEFAULT_PROMPT', '1 cat')
 TURBO_XL = os.getenv('TURBO_XL', 'true').lower() == "true"
-# UPSCALE_ENABLED = os.getenv('UPSCALE_ENABLED', 'false').lower() == "true"
 
 def count_file(directory_path_temp):
     unique_id_temp = 0
@@ -93,10 +88,6 @@ def image_print_create(prompt_input, width_param, height_param):
             guidance_scale = 7
         
         image = pipeline(prompt=prompt_, negative_prompt=NEGATIVE_PROMPT, generator=generator, width=width_, height=height_, num_inference_steps=num_inference_steps, guidance_scale=guidance_scale).images[0]
-
-        # if UPSCALE_ENABLED:
-        #    hires_scale = 2
-        #    image = hires_fix.upscale(image, MAIN_DIR, prompt, NEGATIVE_PROMPT, seed_, width_, height_, guidance_scale, hires_scale)
 
         if resize_pixel_w > 0 or resize_pixel_h > 0:
             image = image.resize((width_param, height_param))
