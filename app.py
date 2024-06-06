@@ -74,7 +74,7 @@ PROMPT_FILE = os.getenv('PROMPT_FILE', 'manga_generator.txt')
 CFG = int(os.getenv('CFG', '7'))
 STEPS = int(os.getenv('STEPS', '40'))
 INPUT_SEED = int(os.getenv('INPUT_SEED', '-1'))
-MANGA_SCENES_ORDER = os.getenv('MANGA_SCENES_ORDER', 'true').lower() == "true"
+MANGA_SCENES_ORDER = os.getenv('MANGA_SCENES_ORDER', 'true').lower() == 'true'
 
 def count_file(directory_path_temp):
     unique_id_temp = 0
