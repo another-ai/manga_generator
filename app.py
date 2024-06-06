@@ -23,7 +23,7 @@ MODEL_FILE_VAE = os.getenv('MODEL_FILE_VAE', '')
 LORA_PATH = MAIN_DIR + os.getenv('LORA_PATH', 'Lora/')
 if LORA_PATH.startswith('/'):
     LORA_PATH = LORA_PATH[1:]
-MODEL_FILE_LORA = os.getenv('MODEL_FILE_LORA', 'sd_xl_turbo_lora_v1-128dim.safetensors')
+MODEL_FILE_LORA = os.getenv('MODEL_FILE_LORA', '')
 NEGATIVE_PROMPT = os.getenv('NEGATIVE_PROMPT', 'blurry,blurry_image,lowres,low_resolution,low_picture_quality,low_picture_anime,extra_anatomy,extra_body,extra_navel,extra_face,extra_eyes,extra_chest,extra_nipples,extra_hips,extra_arms,extra_hands,extra_fingers,extra_legs,extra_feet,extra_toe,missing_anatomy,missing_body,missing_navel,missing_face,missing_eyes,missing_chest,missing_nipples,missing_hips,missing_arms,missing_hands,missing_fingers,missing_legs,missing_feet,missing_toe')
 # A5 page dimensions in pixels (300 dpi - 1240 * 1748); default = 826, 1164; 826 = int(1240/1.5); 1164 = int(826*(1240/1748))
 WIDTH = int(os.getenv('WIDTH', 826))
@@ -33,7 +33,6 @@ MIN_SIZE_FACTOR = float(os.getenv('MIN_SIZE_FACTOR', 6.2))
 MANGA_DIR = os.getenv('MANGA_DIR', 'manga')
 PROMPT_FILE = os.getenv('PROMPT_FILE', 'manga_generator.txt')
 DEFAULT_PROMPT = os.getenv('DEFAULT_PROMPT', '1 cat')
-TURBO_XL = os.getenv('TURBO_XL', 'true').lower() == "true"
 
 def count_file(directory_path_temp):
     unique_id_temp = 0
@@ -80,12 +79,8 @@ def image_print_create(prompt_input, width_param, height_param):
         if resize_pixel_h > 0:
             height_ = height_ - resize_pixel_h
 
-        if TURBO_XL:
-            num_inference_steps = 8
-            guidance_scale = 2
-        else:
-            num_inference_steps = 40
-            guidance_scale = 7
+        num_inference_steps = 40
+        guidance_scale = 7
         
         image = pipeline(prompt=prompt_, negative_prompt=NEGATIVE_PROMPT, generator=generator, width=width_, height=height_, num_inference_steps=num_inference_steps, guidance_scale=guidance_scale).images[0]
 
