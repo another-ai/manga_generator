@@ -43,8 +43,14 @@ py app.py
 2. ```.\venv\Scripts\activate```
 3. ```pip install -r requirements.txt```
 
-# Balloon & Text in this application
-For the Baloon, the best option is to insert them manually, for the text... perhaps in a future version.
+# Greyscale
+Add ```greyscale``` at the start of every lines
+
+# Black and White
+Add ```monochrome``` at the start of every lines
+
+# Balloon in this application
+For the Baloon, the best option is to insert them manually, you can try to insert ```balloon``` in the prompt, but Stable Diffusion XL is not so good with balloon and text inside.
 
 # Versions:
 - v1.0: First version
