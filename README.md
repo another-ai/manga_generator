@@ -49,7 +49,7 @@ greyscale,1 cat,day,sun
 greyscale,1 cat,day,sun,forest
 greyscale,1 cat,day,sun,city
 ```
-![](src/screenshot.png)
+![](src/example.png)
 
 # Greyscale
 Add ```greyscale``` at the start of every lines
