@@ -43,5 +43,8 @@ py app.py
 2. ```.\venv\Scripts\activate```
 3. ```pip install -r requirements.txt```
 
+# Balloon & Text in this application
+For the Baloon, the best option is to insert them manually, for the text... perhaps in a future version.
+
 # Versions:
 - v1.0: First version
