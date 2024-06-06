@@ -50,7 +50,7 @@ Add ```greyscale``` at the start of every lines
 Add ```monochrome``` at the start of every lines
 
 # Balloon in this application
-For the Baloon, the best option is to insert them manually, you can try to insert ```balloon``` in the prompt, but Stable Diffusion XL is not so good with balloon and text inside.
+For the Baloon, the best option is to insert them manually, you can try to insert ```balloon``` in the prompt, but Stable Diffusion XL is not so good with balloon and text inside them.
 
 # Versions:
 - v1.0: First version
