@@ -24,10 +24,10 @@ File for configuration
 # Models
 If you have webui 1111 or similars you can insert your PATH in env/manga_generator.env after MAIN_DIR= and configure the other options  
 or  
-Download from hugginface, civitai.com or any similar website every checkpoint sd xl that you use and put them into ./models/Stable-diffusion/  
-(optional) Download from hugginface, civitai.com or any similar website every LoRA sd xl that you use and put them into ./models/Lora/  
-(optional) Download from hugginface, civitai.com or any similar website every VAE that you use and put them into ./models/VAE/  
-Configure the env/manga_generator.env with your models
+1. Download from hugginface, civitai.com or any similar website every checkpoint sd xl that you use and put them into ./models/Stable-diffusion/
+2. (optional) Download from hugginface, civitai.com or any similar website every LoRA sd xl that you use and put them into ./models/Lora/
+3. (optional) Download from hugginface, civitai.com or any similar website every VAE that you use and put them into ./models/VAE/
+4. Configure the env/manga_generator.env with your models
 
 # Run:
 ### Method 1
