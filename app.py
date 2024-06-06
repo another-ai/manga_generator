@@ -74,6 +74,7 @@ PROMPT_FILE = os.getenv('PROMPT_FILE', 'manga_generator.txt')
 CFG = int(os.getenv('CFG', '7'))
 STEPS = int(os.getenv('STEPS', '40'))
 INPUT_SEED = int(os.getenv('INPUT_SEED', '-1'))
+MANGA_SCENES_ORDER = (os.getenv('MANGA_SCENES ORDER', 'true') == True)
 
 def count_file(directory_path_temp):
     unique_id_temp = 0
@@ -219,9 +220,7 @@ def count_folders(directory_path_temp, new_folder):
         unique_id_temp = 1
     return str(unique_id_temp)
 
-
-def generate_manga(prompt_input, negative_prompt, width, height, margin, cfg, steps, input_seed):
-
+def generate_manga(prompt_input, negative_prompt, width, height, margin, cfg, steps, input_seed, reverse_scenes):
     min_size_factor = 6.2
     min_size = int(width / min_size_factor)
 
@@ -240,7 +239,11 @@ def generate_manga(prompt_input, negative_prompt, width, height, margin, cfg, st
         num_scenes = len(page_prompts)
         initial_rect = (margin, margin, width - margin, height - margin)
         scenes = split_rectangles(initial_rect, num_scenes, min_size)
-        scenes.sort(key=lambda r: (r[1], -r[0]))
+        
+        if MANGA_SCENES_ORDER:
+            scenes.sort(key=lambda r: (r[1], -r[0])) # Default sort from right to left
+        else:
+            scenes.sort(key=lambda r: (r[1], r[0]))  # Sort from left to right
 
         for scene, prompt in zip(scenes, page_prompts):
             draw.rectangle(scene, outline='black', width=5)
@@ -261,10 +264,10 @@ def generate_manga(prompt_input, negative_prompt, width, height, margin, cfg, st
                 crop_and_insert_image(img, scene, image)
 
         if MODEL_FILE_VAE == "":
-           vae_string = ""
+            vae_string = ""
         else:
-            vae_hash=calculate_sha256(os.path.join(VAE_PATH, MODEL_FILE_VAE), 10)
-            vae_string = ", VAE hash: " + vae_hash + ", VAE: "+ MODEL_FILE_VAE # vae_name with extension at the end!
+            vae_hash = calculate_sha256(os.path.join(VAE_PATH, MODEL_FILE_VAE), 10)
+            vae_string = ", VAE hash: " + vae_hash + ", VAE: " + MODEL_FILE_VAE  # vae_name with extension at the end!
 
         txt_file_data = ""
         if MODEL_FILE_LORA[0] != "":
@@ -282,10 +285,10 @@ def generate_manga(prompt_input, negative_prompt, width, height, margin, cfg, st
 
         pages_str = "\n".join(page_prompts)
 
-        txt_file_data=txt_file_data+pages_str+"\n"+"Negative prompt: "+negative_prompt+"\n"+"Steps: "+str(steps)+", Sampler: Euler a, CFG scale: "+str(cfg)+", Seed: "+str(seed)+", Size: "+str(width)+"x"+str(height)+", Model hash: "+model_hash+", Model: "+os.path.splitext(os.path.basename(CHECKPOINT))[0]+vae_string
+        txt_file_data = txt_file_data + pages_str + "\n" + "Negative prompt: " + negative_prompt + "\n" + "Steps: " + str(steps) + ", Sampler: Euler a, CFG scale: " + str(cfg) + ", Seed: " + str(seed) + ", Size: " + str(width) + "x" + str(height) + ", Model hash: " + model_hash + ", Model: " + os.path.splitext(os.path.basename(CHECKPOINT))[0] + vae_string
 
         if txt_file_lora != "":
-            txt_file_data = txt_file_data+txt_file_lora
+            txt_file_data = txt_file_data + txt_file_lora
 
         print(txt_file_data)
         if not os.path.exists(MANGA_DIR):
@@ -362,7 +365,8 @@ if __name__ == "__main__":
             gr.Number(label="Margin", value=MARGIN),
             gr.Number(label="CFG", value=CFG, step=1),
             gr.Number(label="Steps", value=STEPS, step=1),
-            gr.Number(label="Input Seed(-1 = random)",value=INPUT_SEED,step=1,minimum=-1, maximum=9999999999)
+            gr.Number(label="Input Seed(-1 = random)", value=INPUT_SEED, step=1, minimum=-1, maximum=9999999999),
+            gr.Checkbox(label="Manga Scenes Order", value=MANGA_SCENES_ORDER)
         ],
         outputs=gr.File(label="Generated Manga Pages"),
         title="Manga Generator",
