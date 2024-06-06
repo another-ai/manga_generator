@@ -1,10 +1,7 @@
-1cat, first page, scene 1
+greyscale,1 cat,day
 
-1cat, second page, scene 1
-1cat, second page, scene 2
-1cat, second page, scene 3
-1cat, second page, scene 4
+greyscale,1 cat,day,sun
+greyscale,1 cat,day,sun,forest
+greyscale,1 cat,day,sun,city
 
-1cat, third page, scene 1
-1cat, third page, scene 2
-1cat, third page, scene 3
+greyscale,1 cat,day,sun,city,jump
