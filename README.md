@@ -48,3 +48,6 @@ For the Baloon, the best option is to insert them manually, for the text... perh
 
 # Versions:
 - v1.0: First version
+
+## Support:
+- ko-fi: (https://ko-fi.com/shiroppo)
