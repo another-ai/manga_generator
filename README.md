@@ -49,7 +49,7 @@ greyscale,1 cat,day,sun
 greyscale,1 cat,day,sun,forest
 greyscale,1 cat,day,sun,city
 ```
-![example](https://github.com/another-ai/manga_generator/assets/9450305/72058c4f-948b-4a9c-99ae-1184fe3bb78e)
+![](src/screenshot.png)
 
 # Greyscale
 Add ```greyscale``` at the start of every lines
