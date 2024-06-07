@@ -1,5 +1,5 @@
 # manga_generator
-Create your manga/comic with manga_generator and Stable Diffusion XL
+Create your manga/comic with manga_generator and Stable Diffusion XL(with Gradio UI)
 
 # Installation:
 1. Install [Python 3.10.6](https://www.python.org/downloads/release/python-3106/), checking "Add Python to PATH".
