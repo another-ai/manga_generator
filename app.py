@@ -74,7 +74,7 @@ PROMPT_FILE = os.getenv('PROMPT_FILE', 'manga_generator.txt')
 CFG = int(os.getenv('CFG', '7'))
 STEPS = int(os.getenv('STEPS', '40'))
 INPUT_SEED = int(os.getenv('INPUT_SEED', '-1'))
-MANGA_SCENES_ORDER = os.getenv('MANGA_SCENES_ORDER', 'true').lower() == 'true'
+MANGA_SCENES_ORDER = os.getenv('MANGA_SCENES_ORDER', 'true').lower() == "true"
 
 def count_file(directory_path_temp):
     unique_id_temp = 0
@@ -248,14 +248,16 @@ def generate_manga(prompt_input, negative_prompt, width, height, margin, cfg, st
         for scene, prompt in zip(scenes, page_prompts):
             draw.rectangle(scene, outline='black', width=5)
 
-            width_param = scene[2] - scene[0]
-            height_param = scene[3] - scene[1]
+            width_param_scene = scene[2] - scene[0]
+            height_param_scene = scene[3] - scene[1]
 
-            crop = False
-            if width_param <= 640:
-                width_param = 640
-                height_param = int(640 * (width_param / height_param))
+            width_param = 832
+            height_param = 1216
+
+            if width_param_scene <= 640 or height_param_scene <= 480:
                 crop = True
+            else:
+                crop = False
 
             [image, seed] = image_print_create(prompt, width_param, height_param, negative_prompt, cfg, steps, input_seed)
             if not crop:
