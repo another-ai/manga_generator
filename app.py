@@ -368,9 +368,9 @@ if __name__ == "__main__":
             gr.Number(label="Input Seed(-1 = random)", value=INPUT_SEED, step=1, minimum=-1, maximum=9999999999),
             gr.Checkbox(label="Manga Scenes Order", value=MANGA_SCENES_ORDER)
         ],
-        outputs=gr.File(label="Generated Manga Pages"),
+        outputs=gr.Gallery(allow_preview=True, preview=True, label="Generated Manga Pages", show_label=True),
         title="Manga Generator",
-        description=f"If Prompt is empty, {PROMPT_FILE} is the default value",
+        description=f"If Prompt is empty, {PROMPT_FILE} is the default value, one empty line = a new page",
         allow_flagging="never"
     )
     iface.launch(share=False, inbrowser=True)
